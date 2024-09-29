@@ -1,8 +1,8 @@
-#Node.js Docker Application
+###Node.js Docker Application
 
 This project demonstrates a simple Node.js application that runs inside a Docker container. The project includes the setup for deploying the application in a Kubernetes cluster with an ImagePullSecret for private Docker registry access and an NGINX Ingress Controller for external access.
 
-#Prerequisites
+###Prerequisites
 
 Before you begin, ensure you have the following installed:
 
