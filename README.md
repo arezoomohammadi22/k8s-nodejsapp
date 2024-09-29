@@ -1,6 +1,3 @@
-# Create a markdown file for the user's README content
-
-readme_content = """
 # Node.js Kubernetes Application
 
 ![Node.js](https://img.shields.io/badge/Node.js-v14-green) ![Docker](https://img.shields.io/badge/Docker-Enabled-blue) ![Kubernetes](https://img.shields.io/badge/Kubernetes-Deployed-orange)
@@ -35,7 +32,20 @@ Before starting, make sure you have the following installed:
 
 ## Docker Setup
 
-1. **Clone the Repository**:
+ **Clone the Repository**:
    ```bash
    git clone <repository-url>
    cd <project-directory>
+```
+
+## Kubernetes Deployment
+
+ImagePullSecret
+If you’re using a private Docker registry, create an ImagePullSecret in Kubernetes to allow the cluster to pull the Docker image:
+```bash
+kubectl create secret docker-registry myregistrykey \
+  --docker-server=https://index.docker.io/v1/ \
+  --docker-username=<your-docker-username> \
+  --docker-password=<your-docker-password> \
+  --docker-email=<your-email>
+```
