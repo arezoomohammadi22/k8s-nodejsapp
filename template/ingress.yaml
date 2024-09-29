@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myapp-ingress
+  annotations:
+    # This annotation tells NGINX to rewrite all requests to the root (/)
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    # Add SSL redirect (useful if you're terminating SSL at Ingress)
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    # Optional: Force a specific timeout
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "120"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: <your-domain-or-ip>
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: myapp-clusterip-service
+            port:
+              number: 80
