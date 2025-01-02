@@ -1,4 +1,4 @@
-FROM docker.arvancloud.ir/node:16
+FROM docker.arvancloud.ir/node:14
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
